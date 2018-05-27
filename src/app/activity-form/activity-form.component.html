@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="submit()" #form="ngForm">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="pin">Client PIN:</label>
+            <input type="text" class="form-control" id="pin" name="pin" ngModel required>
+          </div>
+          <p [ngStyle]="{'color': 'red'}" *ngIf="!form.valid && form.touched">Please enter valid Pin!</p>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="activity">Parent Activity:</label>
+            <select name="activity" id="activity" [ngModel]="defaultActivity" class="form-control" required>
+              <option value="Daily_Survey">Daily Survey</option>
+              <option value="Biweekly_Survey">Biweekly Survey</option>
+              <option value="Game_FruitRun">Fruit Run</option>
+              <option value="Provision_Survey">Provision Survey</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="type">Trial Type:</label>
+            <input type="text" class="form-control" id="type" name="type" [value]="defaultType" [ngModel]="defaultType" required>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <button
+              [disabled]="!form.valid || !connected"
+              type="submit"
+              class="btn btn-success">{{ formSubmitted ? 'Processing...' : 'Submit' }}</button>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="getAllActivities()">{{ loadSubmitted ? 'Processing...' : 'Load' }}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="successSubmission">
+      <strong>Success!</strong>
+    </div>
+    <div class="alert alert-danger" *ngIf="successSubmission !== null && !successSubmission">
+      <strong>Failed!</strong>
+    </div>
+    <hr>
+    <ul class="list-group">
+      <h4 *ngIf="activities !== empty">List of pending activities:</h4>
+      <li class="list-group-item" *ngFor="let activity of activities; let i = index">
+        {{ activity.activityTitle }}
+      </li>
+    </ul>
+  </div>
+</div>
