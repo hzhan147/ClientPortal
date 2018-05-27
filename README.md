@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Deployment Instruction
+
+Run command 'ng build --base-href=/portal/' on the repository /ClientPortal. Make a new folder named portal on the tomcat's webapp folder. Copy all contents on the folder ./dist/ClientPortal/ into the /portal folder.
+Access the service on the URL: http://localhost:8080/portal/index.html.
