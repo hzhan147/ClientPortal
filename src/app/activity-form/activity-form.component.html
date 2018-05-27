@@ -23,7 +23,14 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="type">Trial Type:</label>
-            <input type="text" class="form-control" id="type" name="type" [value]="defaultType" [ngModel]="defaultType" required>
+            <input
+              type="text"
+              class="form-control"
+              id="type"
+              name="type"
+              [value]="defaultType"
+              [ngModel]="defaultType"
+              required>
           </div>
         </div>
         <div class="col-xs-12">
@@ -49,7 +56,7 @@
     </div>
     <hr>
     <ul class="list-group">
-      <h4 *ngIf="activities !== empty">List of pending activities:</h4>
+      <h4 *ngIf="activities">List of pending activities:</h4>
       <li class="list-group-item" *ngFor="let activity of activities; let i = index">
         {{ activity.activityTitle }}
       </li>

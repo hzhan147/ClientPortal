@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   statusSubscription: Subscription;
   serverStatus = 'UNKNOWN';
   disableButton = false;
+  isCollapsed = false;
   @ViewChild('serverConfigForm') configForm: NgForm;
   constructor(private dataStorageService: DataStorageService) { }
 
@@ -32,5 +33,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onConnect(){
     this.disableButton = true;
     this.dataStorageService.getServerStatus(this.configForm.value.ip,this.configForm.value.port);
+  }
+
+  toggleCollapse(){
+    this.isCollapsed = !this.isCollapsed;
   }
 }

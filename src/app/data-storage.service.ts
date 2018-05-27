@@ -28,7 +28,9 @@ export class DataStorageService {
     return this.http.post(this.post_url, this.activityRequest, {headers: this.header})
       .subscribe(
         (response: Response) => {
-          this.success.next(true);
+          if(response.status === 200 || response.ok){
+            this.success.next(true);
+          }
         },
         (error: Response) => {
           console.log(error);
