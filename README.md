@@ -28,6 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Deployment Instruction
 
+Run 'npm install' on the root folder with bunch of json files.
+Before each builds, please make sure delete the dist/ folder manually.
 Make a new folder named portal on the tomcat's webapp folder.
 Run command 'ng build --base-href=/portal/' on the repository /ClientPortal. Copy all contents on the folder ./dist/ClientPortal/ into the /portal folder.
 Access the service on the URL: http://localhost:8080/portal/index.html.
