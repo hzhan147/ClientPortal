@@ -44,9 +44,9 @@ export class DataStorageService {
   }
 
   getServerStatus(ip: string, port: string){
-    this.post_url = 'http://' + ip + ':' + port + '/dmtb_api/rest/activity/scheduleactivity';
-    this.get_url = 'http://' + ip + ':' + port + '/dmtb_api/rest/activities/scheduledactivity';
-    return this.http.options('http://' + ip + ':' + port + '/dmtb_api/rest/activities/scheduledactivity',{headers: this.header})
+    this.post_url = ip + ':' + port + '/dmtb_api/rest/activity/scheduleactivity';
+    this.get_url = ip + ':' + port + '/dmtb_api/rest/activities/scheduledactivity';
+    return this.http.options(ip + ':' + port + '/dmtb_api/rest/activities/scheduledactivity',{headers: this.header})
       .subscribe(
         (response: Response) => {
           if(response.status === 200) {

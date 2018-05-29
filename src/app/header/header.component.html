@@ -17,10 +17,10 @@
       </ul>
       <form class="navbar-form navbar-left" (ngSubmit)="onConnect()" #serverConfigForm="ngForm">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Server IP" name="ip" ngModel required>
-          <input type="number" class="form-control" placeholder="Server Port" name="port" ngModel required>
+          <input type="text" class="form-control" placeholder="http://localhost" name="ip" ngModel required>
+          <input type="number" class="form-control" placeholder="8080" name="port" ngModel required>
         </div>
-        <button [disabled]="!serverConfigForm.valid || disableButton" type="submit" class="btn btn-default">Connect</button>
+        <button style="margin-left: 5px" [disabled]="!serverConfigForm.valid || disableButton" type="submit" class="btn btn-default">Test Server Status</button>
       </form>
       <div class="container" *ngIf="serverStatus === 'online'">
         <img class="img-responsive" src="assets/greenLed.png" style="width: 15px;height: 15px;float: right">
